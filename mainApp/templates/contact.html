@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+<title>Eshop | Contact Page</title>
+{% endblock %}
+{% block content %}
+<div class="container-fluid my-2">
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="background text-light text-center mb-2 p-2">
+                ramgopal@gmail.com
+            </div>
+            <div class="background text-light text-center mb-2 p-2">
+                9027587069
+            </div>
+            <div class="background text-light text-center mb-2 p-2">
+                A-43, Ducat, Sector 16, Noida, India
+            </div>
+            <div class="mapouter">
+                <div class="gmap_canvas"><iframe width="100%" height="480px" id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=a-43%20sector%2016%20Noida&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>                       
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <h5 class="background text-light text-center p-2">Contact Page</h5>
+            {% for i in messages %}
+            <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
+                {{i}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" required name="name" class="form-control" placeholder="Enter Your Name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" required name="email" class="form-control" placeholder="Enter Your Name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" required name="phone" class="form-control" placeholder="Enter Your Name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Subject</label>
+                    <input type="text" required name="subject" class="form-control" placeholder="Enter Your Name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Message</label>
+                    <textarea required name="message" rows="5" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn background text-light text-center p-2 w-100">SUbmit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock%}
